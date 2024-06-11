@@ -10,6 +10,27 @@ Release builds can be found [here](https://github.com/doitsujin/dxvk/releases).
 
 ## How to use
 In order to install a DXVK package obtained from the [release](https://github.com/doitsujin/dxvk/releases) page into a given wine prefix, copy or symlink the DLLs into the following directories as follows, then open `winecfg` and manually add `native` DLL overrides for `d3d8`, `d3d9`, `d3d10core`, `d3d11` and `dxgi` under the Libraries tab.
+#### Latest automatically
+Examples for systems with bash, curl, grep, cut and jq utils available:
+```
+export WINEPREFIX=/path/to/wineprefix
+curl -s https://raw.githubusercontent.com/doitsujin/dxvk/master/install.sh | bash
+```
+
+```
+cd /path/to/wineprefix
+curl -s https://raw.githubusercontent.com/doitsujin/dxvk/master/install.sh | bash
+```
+
+Or in one line:
+```
+curl -s https://raw.githubusercontent.com/doitsujin/dxvk/master/install.sh | WINEPREFIX=~/.wine bash
+```
+
+Then use env variable WINEDLLOVERRIDES="d3d11,d3d10core,dxgi,d3d9=n,b" to start wine app.
+
+#### Manually
+In order to install a DXVK package obtained from the [release](https://github.com/doitsujin/dxvk/releases) page into a given wine prefix, copy or symlink the DLLs into the following directories as follows, then open `winecfg` and manually add DLL overrides for `d3d11`, `d3d10core`, `dxgi`, and `d3d9`.
 
 In a default Wine prefix that would be as follows:
 ```
