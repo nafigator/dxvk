@@ -122,8 +122,8 @@ function check_latest_release() {
 
 # Download and prepare latest release
 function prepare_release() {
-  readonly jq_name_select='.assets[][0].name'
-  readonly jq_download_url='.assets[][0].browser_download_url'
+  readonly jq_name_select='.assets[0].name'
+  readonly jq_download_url='.assets[0].browser_download_url'
   readonly release_file_name="$(echo "$RELEASE_LATEST_RESP" | jq -r "$jq_name_select")"
 
   debug "Variable release_file_name: $release_file_name"
